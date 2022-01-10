@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: flowable
+  profiles:
+    active: dev
+  cloud:
+    config:
+      fail-fast: true
+server:
+  tomcat:
+    max-http-post-size: -1
+    max-http-header-size: 102400

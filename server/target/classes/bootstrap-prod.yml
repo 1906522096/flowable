@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    config:
+      profile: eureka,redis,logger,variable
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 5
+    preferIpAddress: true
+  client:
+    eureka-server-read-timeout-seconds: 5
+    serviceUrl:
+      defaultZone: http://eureka1:8080/eureka/,http://eureka2:8080/eureka/
+    eureka-server-connect-timeout-seconds: 5

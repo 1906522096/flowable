@@ -1,0 +1,26 @@
+spring:
+  datasource:
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      url: ${jdbcUrl:jdbc:mysql://192.168.8.81:7788/jsbi_impl_dev?useUnicode=true&characterEncoding=UTF-8&useSSL=false}
+      username: ${jdbcUserName:jsbi}
+      password: ${jdbcPassword:Jsbi@mysql.com}
+  cloud:
+    config:
+      profile: eureka,redis,logger,variable
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: config-server
+
+eureka:
+  instance:
+    lease-expiration-duration-in-seconds: 5
+    lease-renewal-interval-in-seconds: 5
+    preferIpAddress: true
+  client:
+    eureka-server-read-timeout-seconds: 5
+    serviceUrl:
+#      defaultZone: http://eureka.jsbiimpl.qgbest/eureka
+      defaultZone: http://eureka.jsbidev.qgbest/eureka
+    eureka-server-connect-timeout-seconds: 5
